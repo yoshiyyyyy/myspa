@@ -9,10 +9,6 @@ Vue.config.productionTip = false
 
 Vue.use(ElementUI, {locale});
 
-// デフォルト
-// new Vue({
-//   render: h => h(App),
-// }).$mount('#app')
 
 new Vue({
   el: '#app',
