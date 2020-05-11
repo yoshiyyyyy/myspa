@@ -1,8 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <form action="./upload.cgi" method="post" enctype="multipart/form-data">
-      <input type="file" accept=".xlsx">
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="file">
       <!-- <el-upload
         class="upload-demo"
         drag
