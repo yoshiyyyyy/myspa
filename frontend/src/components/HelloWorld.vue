@@ -1,23 +1,10 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <form action="./upload.cgi" method="post" enctype="multipart/form-data">
-      <input type="file" accept=".xlsx">
-      <!-- <el-upload
-        class="upload-demo"
-        drag
-        action="https://jsonplaceholder.typicode.com/posts/"
-        :on-preview="handlePreview"
-        :on-remove="handleRemove"
-        :file-list="fileList"
-        multiple>
-        <i class="el-icon-upload"></i>
-        <div class="el-upload__text">Drop file here or 
-        <em>click to upload</em></div>
-        <div class="el-upload__tip" slot="tip">Exelファイルのみ使用可</div> -->
-      <!-- </el-upload> -->
-      <input type="submit" value="処理を開始する">
-      <!-- <el-button type="info" disabled>Info</el-button> -->
+    <form method="post" enctype="multipart/form-data">
+      <div><input type="file" name="file" accept=".xlsx"></div>
+      <div><input type="number" id="excel_row" name="excel_row" placeholder="Sheet1の値が入っている最後の行数"></div>
+      <div><input type="submit" value="処理を開始する"></div>
   </div>
 </template>
 
