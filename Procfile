@@ -1,1 +1,1 @@
-web: python main.py
+web: gunicorn --cd backend main:app
