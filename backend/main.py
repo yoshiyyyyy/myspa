@@ -6,9 +6,11 @@ import sys
 sys.path.append("myspa/backend")
 import BuildLane
 
+
+
 UPLOAD_FOLDER = '/Users/yoshimasa/projects/myspa/backend/uploads/'
 
-app = Flask(__name__, static_folder='../frontend/dist/static', template_folder='../frontend/dist')
+app = Flask(__name__, static_folder='../frontend/dist/static', template_folder='../frontend/dist/Templates')
 app.config["SECRET_KEY"] = "sample"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
