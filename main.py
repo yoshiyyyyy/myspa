@@ -18,19 +18,19 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def index():
     return render_template('index.html')
 
-@app.route("/", methods=["GET","POST"])
-def upload_file():
-    if request.method == 'POST':
-        file = request.files['file']
-        if file.filename == '':
-            flash('ファイルがありません', "failed")
-            return redirect(request.url)
-        else:
-            excel_row = request.form.get('excel_row') 
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            BuildLane.func(filename,int(excel_row))
-            return send_from_directory("./backend/uploads", filename, as_attachment=True), os.remove('./backend/uploads/%s' % filename)
+# @app.route("/", methods=["GET","POST"])
+# def upload_file():
+#     if request.method == 'POST':
+#         file = request.files['file']
+#         if file.filename == '':
+#             flash('ファイルがありません', "failed")
+#             return redirect(request.url)
+#         else:
+#             excel_row = request.form.get('excel_row') 
+#             filename = secure_filename(file.filename)
+#             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+#             BuildLane.func(filename,int(excel_row))
+#             return send_from_directory("./backend/uploads", filename, as_attachment=True), os.remove('./backend/uploads/%s' % filename)
     
           
 
