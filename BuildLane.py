@@ -3,7 +3,7 @@ import random
 
 def func(filename,excel_row):
 
-    wb = openpyxl.load_workbook('./uploads/%s' % filename)
+    wb = openpyxl.load_workbook('./backend/uploads/%s' % filename)
     sheet1 = wb['Sheet1']
     sheet2 = wb['Sheet2']
     lane = {'A':1,'B':2,'C':3,'D':4,'E':5,'F':6,'G':7,'H':8}
@@ -91,4 +91,4 @@ def func(filename,excel_row):
         print("8人もしくは7人でレーンが組めません。Sheet1にデータを追加するか削除してください。")
 
                 
-    wb.save(r'./uploads/%s' % filename)
+    wb.save(r'./backend/uploads/%s' % filename)

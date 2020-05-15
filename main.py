@@ -3,14 +3,14 @@ from werkzeug.utils import secure_filename
 import requests
 import os
 import sys
-sys.path.append("myspa/backend")
+sys.path.append("myspa")
 import BuildLane
 
 
 
 UPLOAD_FOLDER = '/Users/yoshimasa/projects/myspa/backend/uploads/'
 
-app = Flask(__name__, static_folder='../frontend/dist/static', template_folder='../frontend/dist/templates')
+app = Flask(__name__, static_folder='./templates/frontend/dist/static', template_folder='./templates/frontend/dist')
 app.config["SECRET_KEY"] = "sample"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -30,9 +30,9 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             BuildLane.func(filename,int(excel_row))
-            return send_from_directory("uploads", filename, as_attachment=True), os.remove('uploads/%s' % filename)
+            return send_from_directory("./backend/uploads", filename, as_attachment=True), os.remove('./backend/uploads/%s' % filename)
     
           
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
